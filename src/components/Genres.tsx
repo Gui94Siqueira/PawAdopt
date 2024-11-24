@@ -24,7 +24,7 @@ export function Genres({ onSelectType }: Props) {
     };
 
     return (
-        <View className="mx-6">
+        <View className="ml-6">
             <Text className="mb-6 font-semibold text-gray-500">Escolha seu novo pet por categoria</Text>
 
             <FlatList
@@ -40,7 +40,6 @@ export function Genres({ onSelectType }: Props) {
                         />
                     </TouchableOpacity>
                 )}
-                className=""
             />
         </View>
     );
