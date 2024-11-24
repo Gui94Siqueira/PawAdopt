@@ -6,9 +6,10 @@ import { DrawerButton } from "@/components/Drawer-button"
 
 export function DrawerContent(drawerProps: DrawerContentComponentProps) {
     return (
-        <View className="flex-1 bg-white overflow-hidden">
+        <View className="flex-1 bg-primary-400 overflow-hidden">
             <View className="mt-4 w-full border-b pb-6 border-gray-500">
-                <Image source={require("@/assets/logo.png")} style={{ width: 150, height: 100 }} className="w-28 ml-5" resizeMode="contain" />
+                <Image source={require("@/assets/PawAdopt.png")}  className="w-fix mt-20 mb-12 ml-10" resizeMode="contain" />
+                <Image source={require("@/assets/logo.png")} className="w-8 h-8 absolute top-[80] right-12"/>
             </View>
 
             <ScrollView

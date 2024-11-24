@@ -29,19 +29,19 @@ export function DrawerButton({
       {...rest}
     >
       <View
-        className={clsx("flex-row items-center gap-4 w-full h-14 px-6 -ml-2", {
-          "bg-orange-800 rounded-r-full": isFocused,
+        className={clsx("flex-row items-center gap-4 h-16 px-6 mx-4 ", {
+          "bg-black rounded-full": isFocused,
           "-ml-14": isDivider,
         })}
       >
         <MaterialIcons
           name={iconName}
           size={20}
-          color={isFocused ? colors.gray[500] : colors.gray[400]}
+          color={isFocused ? colors.white : colors.black}
         />
         <Text
-          className={clsx("text-white font-subtitle text-base flex-1", {
-            "text-orange-300": isFocused,
+          className={clsx("text-black font-subtitle text-lg flex-1", {
+            "text-white": isFocused,
           })}
         >
           {title}
@@ -49,7 +49,7 @@ export function DrawerButton({
 
         <Text
           className={clsx("text-gray-400 text-sm font-body", {
-            "text-orange-300": isFocused,
+            "text-white": isFocused,
           })}
         >
           {notifications}

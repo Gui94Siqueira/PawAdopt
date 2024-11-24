@@ -1,4 +1,5 @@
 import { DrawerContent } from "@/components/Drawer-content"
+import { CustomOptions } from "@/types/navigation"
 import { Drawer } from "expo-router/drawer"
 
 export default function DrawerLayout() {
@@ -15,15 +16,58 @@ export default function DrawerLayout() {
         >
 
             <Drawer.Screen
-                name="(tabs)"
+                name="(tabs)/index"
+                options={
+                    {
+                      title: "Home",
+                      iconName: "home",
+                      isDivider: false
+                    } as CustomOptions
+                  }
                 
             />
             <Drawer.Screen
-                name="details"
+                name="(tabs)/details"
+                options={
+                    {
+                      title: "Detalhes",
+                      iconName: "info",
+                      isDivider: false
+                    } as CustomOptions
+                  }
                
             />
             <Drawer.Screen
-                name="search"
+                name="(tabs)/user"
+                options={
+                    {
+                      title: "Perfil",
+                      iconName: "account-circle",
+                      isDivider: false
+                    } as CustomOptions
+                  }
+            />
+
+            <Drawer.Screen
+                name="(tabs)/favorites"
+                options={
+                    {
+                      title: "Favoritos",
+                      iconName: "favorite",
+                      isDivider: false
+                    } as CustomOptions
+                  }
+            />
+
+            <Drawer.Screen
+                name="(tabs)/search"
+                options={
+                    {
+                      title: "Buscar",
+                      iconName: "search",
+                      isDivider: false
+                    } as CustomOptions
+                  }
             />
         </Drawer>
     )

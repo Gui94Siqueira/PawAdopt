@@ -12,7 +12,7 @@ export function Header() {
     const toggleMenu = () => navigation.dispatch(DrawerActions.toggleDrawer())
 
     return (
-        <View className="m-4 justify-between flex-row bg-primary-400">
+        <View className="mt-10 mx-6 justify-between flex-row bg-primary-400">
             <Pressable onPress={toggleMenu}>
                 <Feather name="menu" size={32} color={colors.black} />
             </Pressable>

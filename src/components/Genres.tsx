@@ -24,8 +24,8 @@ export function Genres({ onSelectType }: Props) {
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Procure pelos generos</Text>
+        <View className="mx-6">
+            <Text className="mb-6 font-semibold text-gray-500">Escolha seu novo pet por categoria</Text>
 
             <FlatList
                 data={TYPES}
@@ -33,33 +33,16 @@ export function Genres({ onSelectType }: Props) {
                 horizontal
                 showsHorizontalScrollIndicator={true}
                 renderItem={({ item }) => (
-                    <TouchableOpacity onPress={() => handleSelectType(item.name)} style={styles.badgeContainer}>
+                    <TouchableOpacity onPress={() => handleSelectType(item.name)} className="mr-2">
                         <Badge
                             label={item.name}
                             variant={selectedType === item.name ? "default" : "secondary"}
                         />
                     </TouchableOpacity>
                 )}
-                contentContainerStyle={styles.badgesList}
+                className=""
             />
         </View>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        marginLeft: 16,
-        marginTop: 5,
-    },
-    title: {
-        fontWeight: "bold",
-        fontSize: 14,
-        marginBottom: 16,
-    },
-    badgesList: {
-        paddingHorizontal: 16, // Espaço nas laterais para dar um efeito de início e fim à rolagem
-    },
-    badgeContainer: {
-        marginRight: 8,
-    },
-});

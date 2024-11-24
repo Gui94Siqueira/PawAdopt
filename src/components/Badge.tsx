@@ -4,7 +4,7 @@ import { Text, View } from 'react-native';
 import { cn } from '../lib/utils';
 
 const badgeVariants = cva(
-  'flex flex-row items-center rounded-full px-4 py-2 text-sm font-bold',
+  'flex flex-row items-center rounded-full p-6  text-sm font-bold',
   {
     variants: {
       variant: {
