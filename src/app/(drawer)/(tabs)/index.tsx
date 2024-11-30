@@ -5,6 +5,7 @@ import { CardStack } from "@/components/CardStack";
 import { PETS } from "@/utils/pets";
 import { StatusBar, Text, View } from "react-native";
 import { NavigationBar } from "@/components/NavigationBar";
+import { Link } from "expo-router";
 
 // Define o tipo de cada objeto pet
 interface Pet {
@@ -42,6 +43,10 @@ export default function Home() {
 
                 {/* Passa a lista filtrada de pets para o CardStack */}
                 <CardStack />
+
+                <Link href={"/1"}>
+                    <Text>Detalhes</Text>
+                </Link>
 
                 <NavigationBar />
             </View> 

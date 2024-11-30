@@ -27,7 +27,7 @@ export default function DrawerLayout() {
                 
             />
             <Drawer.Screen
-                name="(tabs)/details"
+                name="(tabs)/[id]"
                 options={
                     {
                       title: "Detalhes",
