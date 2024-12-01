@@ -4,6 +4,8 @@ import { getUser } from "@/functions/getPetById";
 import { useState, useEffect } from "react";
 import { Header } from "@/components/Header";
 import { useLocalSearchParams } from "expo-router";
+import  Card from "@/components/Card";
+
 
 
 interface DataItem {
@@ -71,11 +73,27 @@ const Details: React.FC = () => {
       )}
 
       <View className="flex-1">
+
+      <Image source={require("@/assets/imageFundo.png")} style={{width: 420, height: "80%", marginTop: 40}} />
       {loading ? (
         <Text>Loading...</Text>
       ) : (
         data ? (
-          <Image source={{uri: "https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg"}} className="w-full h-full" />
+          <View className="w-full justify-center items-center flex-row gap-2 absolute bottom-60">
+            <Card
+            iconName="calendar"
+            text1="Idade"
+            data={data.years}
+            text2="Anos"
+          />
+           <Card
+            iconName="heart"
+            text1="Peso"
+            data={data.weight}
+            text2="Kg"
+          />
+    
+          </View>
         ) : (
           <Text>No data available.</Text>
         )
