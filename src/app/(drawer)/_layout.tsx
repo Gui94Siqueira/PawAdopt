@@ -16,7 +16,7 @@ export default function DrawerLayout() {
         >
 
             <Drawer.Screen
-                name="(tabs)/index"
+                name="(tabs)/home"
                 options={
                     {
                       title: "Home",

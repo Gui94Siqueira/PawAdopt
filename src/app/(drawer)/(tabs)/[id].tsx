@@ -75,7 +75,7 @@ const Details: React.FC = () => {
         <Text>Loading...</Text>
       ) : (
         data ? (
-          <Image source={{uri: data.image}} width={500} height={500} />
+          <Image source={{uri: "https://super.abril.com.br/wp-content/uploads/2020/09/04-09_gato_SITE.jpg"}} className="w-full h-full" />
         ) : (
           <Text>No data available.</Text>
         )

@@ -9,7 +9,7 @@ export function NavigationBar() {
     return (
         <View className="w-full items-center justify-center">
             <View className="w-fit bg-black py-4 px-4 mb-10 flex flex-row items-center justify-between border-2 rounded-full gap-6 opacity-70">
-                <Link href={"/(tabs)"}>
+                <Link href={"/(drawer)/(tabs)/home"}>
                     <TouchableOpacity>
                         <Feather name="home" size={32} color={colors.white} />
                     </TouchableOpacity>
