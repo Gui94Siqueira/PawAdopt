@@ -44,7 +44,7 @@ export default function Home() {
                 {/* Passa a lista filtrada de pets para o CardStack */}
                 <CardStack />
 
-                <Link href={"/1"}>
+                <Link href={"/details/1"}>
                     <Text>Detalhes</Text>
                 </Link>
 

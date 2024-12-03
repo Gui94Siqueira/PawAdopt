@@ -1,6 +1,6 @@
 import api from "@/services/api"; 
 
-export const getUser = async (
+export const getPetsById = async (
   id: number,
   setData: React.Dispatch<React.SetStateAction<any | null>>,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,

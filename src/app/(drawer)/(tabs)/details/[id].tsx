@@ -1,10 +1,11 @@
 import { NavigationBar } from "@/components/NavigationBar";
-import { View, Text, Image } from "react-native";
-import { getUser } from "@/functions/getPetById";
+import { View, Text, Image, Pressable } from "react-native";
+import { getPetsById } from "@/functions/getPetById";
 import { useState, useEffect } from "react";
-import { Header } from "@/components/Header";
-import { useLocalSearchParams } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import  Card from "@/components/Card";
+import { Feather } from "@expo/vector-icons";
+import { colors } from "@/styles/colors";
 
 
 
@@ -36,7 +37,7 @@ const Details: React.FC = () => {
   useEffect(() => {
     if (numericId) {
       setLoading(true); 
-      getUser(numericId, setData, setLoading, setError);
+      getPetsById(numericId, setData, setLoading, setError);
     }
   }, [numericId]); 
 
@@ -47,13 +48,17 @@ const Details: React.FC = () => {
     }
   }, [error]);
 
-  useEffect(() => {
-    console.log(data); 
-  }, [data]);
 
   return (
-    <View className="flex-1 bg-primary-400 px-4 items-center justify-center">
-      <Header />
+    <View className="flex-1 bg-primary-400 px-4 items-center justify-center relative">
+      <View className="w-full mt-10 mx-6 justify-between flex-row bg-primary-400">
+        <Link href={"/(drawer)/(tabs)/home"}>
+          <Feather name="arrow-left" size={32} color={colors.black} />
+        </Link>
+        <Link href={"/(drawer)/(tabs)/home"}>
+          <Feather name="x" size={32} color={colors.black} />
+        </Link>
+      </View>
      
       {loading ? (
         <Text>Loading...</Text>
@@ -72,14 +77,15 @@ const Details: React.FC = () => {
         )
       )}
 
-      <View className="flex-1">
-
+      <View className="flex-1 relative">
       <Image source={require("@/assets/imageFundo.png")} style={{width: 420, height: "80%", marginTop: 40}} />
+      
       {loading ? (
         <Text>Loading...</Text>
       ) : (
         data ? (
-          <View className="w-full justify-center items-center flex-row gap-2 absolute bottom-60">
+          <View className="w-full absolute bottom-20 right-6 gap-2">
+          <View className="flex-row gap-2">
             <Card
             iconName="calendar"
             text1="Idade"
@@ -92,8 +98,14 @@ const Details: React.FC = () => {
             data={data.weight}
             text2="Kg"
           />
-    
           </View>
+          <View className="w-full h-48 p-4 backdrop-blur-sm backdrop-opacity-60 bg-black/40 rounded-3xl p-2">
+            <Text className="text-white font-bold mb-2">Sobre</Text>
+            <Text className="text-white/80 ">{data.description}</Text>
+          </View>
+
+          </View>
+          
         ) : (
           <Text>No data available.</Text>
         )
