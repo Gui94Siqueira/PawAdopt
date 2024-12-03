@@ -17,10 +17,10 @@ type cardProps = {
 export default function Card({ iconName, text1, data, text2 }: cardProps) {
     return(
 
-        <View className={cn("w-1/2 h-48 backdrop-blur-sm backdrop-opacity-60 bg-black/40 rounded-3xl p-2 justify-center items-center")}>
+        <View className={cn("w-44 h-48 backdrop-blur-sm backdrop-opacity-60 bg-black/40 rounded-3xl p-2 justify-center items-center")}>
             <View className="flex-row items-center gap-2">
-              <View className="w-20 h-20 mb-4 bg-white rounded-full justify-center items-center">
-                <Feather name={iconName} size={32} color={colors.black} />
+              <View className="w-16 h-16 mb-4 bg-white rounded-full justify-center items-center">
+                <Feather name={iconName} size={26} color={colors.black} />
               </View>
               <Text className="text-white font-bold">{text1}</Text>
             </View>
