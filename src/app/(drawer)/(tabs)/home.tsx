@@ -34,9 +34,9 @@ export default function Home() {
 
     return (
         <>
-            <View className="w-full flex-1 bg-primary-400 flex-col justify-between">
+            <View className="flex-1 bg-primary-400 flex-col">
                 <Header />
-                <Text className="mx-6 mt-6 mb-2 font-bold text-4xl">Discovery</Text>
+                <Text className="w-full mx-6 mt-6 mb-2 font-bold text-4xl">Discovery</Text>
 
                 {/* Passa a função de filtro para o componente Genres */}
                 <Genres onSelectType={handleSelectType} />

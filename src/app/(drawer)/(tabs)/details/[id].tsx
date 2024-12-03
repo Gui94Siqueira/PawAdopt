@@ -1,5 +1,5 @@
 import { NavigationBar } from "@/components/NavigationBar";
-import { View, Text, Image, Pressable } from "react-native";
+import { View, Text, Image} from "react-native";
 import { getPetsById } from "@/functions/getPetById";
 import { useState, useEffect } from "react";
 import { Link, useLocalSearchParams } from "expo-router";
@@ -9,7 +9,7 @@ import { colors } from "@/styles/colors";
 
 
 
-interface DataItem {
+export interface DataItem {
   id: number;
   name: string;
   years: string;
@@ -84,7 +84,7 @@ const Details: React.FC = () => {
         <Text>Loading...</Text>
       ) : (
         data ? (
-          <View className="w-full absolute bottom-20 right-6 gap-2">
+          <View className="w-full absolute bottom-20 right-2 gap-2">
           <View className="flex-row gap-2">
             <Card
             iconName="calendar"
@@ -99,9 +99,9 @@ const Details: React.FC = () => {
             text2="Kg"
           />
           </View>
-          <View className="w-full h-48 p-4 backdrop-blur-sm backdrop-opacity-60 bg-black/40 rounded-3xl p-2">
-            <Text className="text-white font-bold mb-2">Sobre</Text>
-            <Text className="text-white/80 ">{data.description}</Text>
+          <View className="w-full h-48 p-4 backdrop-blur-sm backdrop-opacity-60 bg-black/40 rounded-3xl">
+            <Text className="text-white font-bold mb-2 text-xl">Sobre</Text>
+            <Text className="text-white/80 text-base">{data.description}</Text>
           </View>
 
           </View>

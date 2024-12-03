@@ -26,7 +26,7 @@ export default function Card({ iconName, text1, data, text2 }: cardProps) {
             </View>
             <View className="flex-row gap-1 items-end">
               <Text className="text-white font-bold text-4xl">{data}</Text>
-              <Text className="text-gray-300 mb-1">{text2}</Text>
+              <Text className="text-white/80 mb-1 font-semibold">{text2}</Text>
             </View>
           </View>
         
