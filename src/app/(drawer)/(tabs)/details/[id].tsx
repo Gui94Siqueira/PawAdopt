@@ -78,13 +78,13 @@ const Details: React.FC = () => {
       )}
 
       <View className="flex-1 relative">
-      <Image source={require("@/assets/imageFundo.png")} style={{width: 420, height: "100%", marginTop: 40}} />
+      <Image source={require("@/assets/imageFundo.png")} style={{width: 420, height: "100%"}} />
       
       {loading ? (
         <Text>Loading...</Text>
       ) : (
         data ? (
-          <View className="w-screen absolute bottom-20 right-0 gap-2">
+          <View className="w-screen absolute bottom-10 right-0 gap-2">
           <View className="flex-row gap-2">
             <Card
             iconName="calendar"
@@ -99,9 +99,9 @@ const Details: React.FC = () => {
             text2="Kg"
           />
           </View>
-          <View className="w-[92%] h-48 p-4 backdrop-blur-sm backdrop-opacity-60 bg-black/40 rounded-3xl">
-            <Text className="text-white font-bold mb-2 text-xl">Sobre</Text>
-            <Text className="text-white/80 text-base">{data.description}</Text>
+          <View className="w-[92%] h-40 p-4 bg-black/40 rounded-3xl">
+            <Text className="text-white font-bold mb-2 text-lg">Sobre</Text>
+            <Text className="text-white/80 ">{data.description}</Text>
           </View>
 
           </View>
