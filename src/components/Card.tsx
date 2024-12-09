@@ -22,7 +22,7 @@ export default function Card({ iconName, text1, data, text2 }: cardProps) {
               <View className="w-16 h-16 mb-4 bg-white rounded-full justify-center items-center">
                 <Feather name={iconName} size={26} color={colors.black} />
               </View>
-              <Text className="text-white font-bold font-medium">{text1}</Text>
+              <Text className="text-white font-bold">{text1}</Text>
             </View>
             <View className="flex-row gap-1 items-end">
               <Text className="text-white font-bold text-4xl">{data}</Text>

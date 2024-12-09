@@ -1,36 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Genres } from "@/components/Genres";
 import { Header } from "@/components/Header";
 import { CardStack } from "@/components/CardStack";
-import { PETS } from "@/utils/pets";
+
 import { StatusBar, Text, View } from "react-native";
 import { NavigationBar } from "@/components/NavigationBar";
-import { Link } from "expo-router";
+import { DataItem } from "./details/[id]";
+import { getPets } from "@/functions/getPets";
 
-// Define o tipo de cada objeto pet
-interface Pet {
-    id: number; // Incluído id para o tipo Pet
-    name: string; // Incluído name para o tipo Pet
-    type: string;
-    images: any[]; // Alterado para images como array
-}
 
-// Define as props esperadas pelo componente Genres
 interface GenresProps {
     onSelectType: (type: string) => void;
 }
 
 export default function Home() {
-    // Estado para armazenar o tipo selecionado
+
+    const [data, setData] = useState<DataItem[] | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<boolean>(false);
+
+
+    useEffect(() => {
+        setLoading(true);
+        getPets(setData, setLoading, setError);
+    }, []);
+
     const [selectedType, setSelectedType] = useState<string | null>(null);
 
-    // Função para atualizar o tipo selecionado
     const handleSelectType = (type: string) => {
         setSelectedType(type);
     };
 
-    // Filtra a lista de pets com base no tipo selecionado
-    const filteredPets: Pet[] = selectedType ? PETS.filter((pet: Pet) => pet.type === selectedType) : PETS;
+    const filteredPets = selectedType ? data?.filter((pet: DataItem) => pet.type === selectedType) : data;
 
     return (
         <>
@@ -44,12 +45,8 @@ export default function Home() {
                 {/* Passa a lista filtrada de pets para o CardStack */}
                 <CardStack />
 
-                <Link href={"/details/1"}>
-                    <Text>Detalhes</Text>
-                </Link>
-
                 <NavigationBar />
-            </View> 
+            </View>
             <StatusBar />
         </>
     );

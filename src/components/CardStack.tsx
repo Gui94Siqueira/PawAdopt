@@ -4,15 +4,35 @@ import { PETS } from "@/utils/pets";
 
 import { SwipeableCard } from "./SwipeableCard";
 
-export const assets = PETS.map((card) => card.images);
+import { getPets } from "@/functions/getPets";
+import { useEffect, useState } from "react";
+import { DataItem } from "@/app/(drawer)/(tabs)/details/[id]";
+
+
 
 export const CardStack = () => {
   const shuffleBack = useSharedValue(false);
+
+  const [data, setData] = useState<DataItem[] | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+
+
+    useEffect(() => {
+        setLoading(true);
+        getPets(setData, setLoading, setError);
+    }, []);
   return (
     <View style={styles.container}>
-      {PETS.map((pet, index) => (
+      {data?.map((item, index) => (
         <SwipeableCard
-          card={{ images: pet.images }}
+          card={
+            { 
+              images: item.image,
+              name: item.name,
+              id: item.id
+            }
+          }
           key={index}
           index={index}
           shuffleBack={shuffleBack}

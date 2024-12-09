@@ -1,5 +1,8 @@
+import { colors } from "@/styles/colors";
+import { Feather } from "@expo/vector-icons";
+import { Link } from "expo-router";
 import React, { useEffect } from "react";
-import { View, StyleSheet, Dimensions, Image } from "react-native";
+import { View, StyleSheet, Dimensions, Image, Text } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
   Easing,
@@ -20,20 +23,22 @@ const DURATION = 250;
 
 interface CardProps {
   card: {
-    images: any; // Ajuste se for diretamente um caminho do require ou asset URI
+    images: string
+    name: string
+    id: number
   };
   shuffleBack: Animated.SharedValue<boolean>;
   index: number;
 }
 
-export const SwipeableCard = ({ card: { images }, shuffleBack, index }: CardProps) => {
+export const SwipeableCard = ({ card: { images, name, id }, shuffleBack, index }: CardProps) => {
   const offset = useSharedValue({ x: 0, y: 0 });
   const translateX = useSharedValue(0);
   const translateY = useSharedValue(-height);
   const scale = useSharedValue(1);
   const rotateZ = useSharedValue(0);
   const delay = 0;
-  const theta = -10 + Math.random() * 20;
+  const theta = -8 + Math.random() * 15;
   
   useEffect(() => {
     translateY.value = withDelay(
@@ -98,10 +103,15 @@ export const SwipeableCard = ({ card: { images }, shuffleBack, index }: CardProp
       <GestureDetector gesture={gesture}>
         <Animated.View style={[styles.card, style]}>
           <Image
-            source={images} 
+            source={{uri: images}} 
             style={[styles.image]}
+            className="relative"
           />
-
+          <Link href={`/details/${id}`}>
+            <View className="w-fit bg-gray-700/40 absolute bottom-8 left-8 px-8 py-4 rounded-full">
+              <Feather name="arrow-right" size={32} color={colors.white} />
+            </View>
+          </Link>
         </Animated.View>
       </GestureDetector>
     </View>

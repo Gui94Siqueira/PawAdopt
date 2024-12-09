@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Text, TouchableOpacity, View, FlatList, StyleSheet } from "react-native";
 import { TYPES } from "@/utils/types";
 import { Badge } from "./Badge";
+import { DataItem } from "@/app/(drawer)/(tabs)/details/[id]";
 
 // Define o tipo para cada objeto em TYPES
 interface SkillType {
@@ -15,7 +16,7 @@ interface Props {
 
 export function Genres({ onSelectType }: Props) {
     // Estado para armazenar o tipo selecionado
-    const [selectedType, setSelectedType] = useState<string | null>(null);
+    const [selectedType, setSelectedType] = useState<String>();
 
     // Função para lidar com a seleção do tipo
     const handleSelectType = (type: string) => {

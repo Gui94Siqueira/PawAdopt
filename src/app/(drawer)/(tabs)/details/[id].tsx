@@ -10,13 +10,14 @@ import { colors } from "@/styles/colors";
 
 
 export interface DataItem {
-  id: number;
-  name: string;
-  years: string;
-  description: string;
-  race: string;
-  weight: number;
-  image: string;
+  id: number
+  name: string
+  years: string
+  description: string
+  race: string
+  type: string
+  weight: number
+  image: string
 }
 
 type SearchParams = {
@@ -25,28 +26,28 @@ type SearchParams = {
 
 const Details: React.FC = () => {
   
-  const { id } = useLocalSearchParams() as SearchParams;
+  const { id } = useLocalSearchParams() as SearchParams
 
-  const numericId = id ? parseInt(id, 10) : undefined; 
+  const numericId = id ? parseInt(id, 10) : undefined;
 
-  const [data, setData] = useState<DataItem | null>(null); 
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
+  const [data, setData] = useState<DataItem | null>(null);
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<boolean>(false)
 
 
   useEffect(() => {
     if (numericId) {
-      setLoading(true); 
-      getPetsById(numericId, setData, setLoading, setError);
+      setLoading(true);
+      getPetsById(numericId, setData, setLoading, setError)
     }
-  }, [numericId]); 
+  }, [numericId])
 
   
   useEffect(() => {
     if (error) {
-      console.log("Erro ao buscar dados.");
+      console.log("Erro ao buscar dados.")
     }
-  }, [error]);
+  }, [error])
 
 
   return (

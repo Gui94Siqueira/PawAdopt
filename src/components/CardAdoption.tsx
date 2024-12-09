@@ -4,7 +4,7 @@ import { View, Text, Image } from "react-native";
 
 export default function CardAdoption() {
     return(
-        <View className="w-full h-48 bg-black/40 rounded-3xl p-4 backdrop-blur-sm backdrop-opacity-60 ">
+        <View className="w-full h-48 bg-black/40 rounded-3xl p-4">
             <View className="flex-row items-center">
                 <Image 
                     source={require("@/assets/billy.jpg")} 
